@@ -23,7 +23,7 @@ class Block{
         let original = Object.assign({}, this.axis);
         let results = this.offSetChecker(first)
         if(results.y>0){
-            this.axis.y -= this.measure * results(first).y
+            this.axis.y -= this.measure * results.y
         } else if(results.x!==0){
             this.axis.x += this.measure * results.x
         }
@@ -142,15 +142,26 @@ class Block{
 
         
         fall(){
+            if(!this.blockPositions) {
+                return
+            };
+            //console.log(this.blockPositions);
+            if(this.blockPositions.some((e)=> e[1].y + this.measure
+            >
+            this.ctx.canvas.height)){                
+                this.blockPositions = this.blockPositions.forEach(e=> e[1].y -= this.measure)
+            }
+                
+            
             if(
-            !this.blockPositions.some((e)=> e[1].y + this.measure
+            this.blockPositions.some((e)=> e[1].y + this.measure
             >=
-            this.ctx.canvas.height) === false
+            this.ctx.canvas.height)
             &&
             this.positions.length < 1
             ){
         this.positions = Object.entries(this.diagram)
-    }
+        }
 
     if(this.floor.length > 0){
         if(this.blockPositions.some((e)=>
