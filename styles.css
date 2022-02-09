@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(14, 14, 14);
+}
+
+.canvas-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#canvas1 {
+  background-color: rgb(19, 19, 19);
+}
+
+#canvas1 {
+  padding: 5px;
+  border: rgb(238, 238, 238) solid;
+}
